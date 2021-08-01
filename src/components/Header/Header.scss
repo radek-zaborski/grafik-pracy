@@ -1,0 +1,31 @@
+.header {
+  width: 100vw;
+  height: 180px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border: 2px solid rgb(59, 76, 153);
+  border-radius: 100px;
+
+  .img-1 {
+    border-radius: 100px 0 0 100px;
+    width: 350px;
+    height: 180px;
+    display: block;
+  }
+
+  .img-2 {
+    border-radius: 0 100px 100px 0;
+    width: 350px;
+    height: 180px;
+    display: block;
+  }
+
+  h1 {
+    font-size: 40px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: Skyfont-NonCommercial;
+  }
+}
