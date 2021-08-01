@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.scss';
 import Header from './components/Header/Header';
+import MainPage from './components/mainPage/MainPage';
 
 class App extends Component {
 
@@ -12,7 +13,7 @@ class App extends Component {
 
   async componentDidMount(){
   
-    await axios.get('httsp://testowo.elzonik.pl/frontest.php')
+    await axios.get('http://testowo.elzonik.pl/frontest.php')
    
    
     .then(res=> this.setState({dataEnter: res.data}))
@@ -44,7 +45,7 @@ class App extends Component {
     <div className="App">
       <Header/>
       <div className="container__image-waiting">
-        <img class="image-waiting" src={require('./img/radar-wait.gif')} alt=''/>
+        <img className="image-waiting" src={require('./img/radar-wait.gif')} alt=''/>
         
       </div>
       <h2>Waiting for data</h2>
@@ -56,7 +57,9 @@ class App extends Component {
    
     return (
       <div className="App">
-        wczytano dane
+         <Header/>
+
+         <MainPage {...data}/>
       </div>
     );
   }
