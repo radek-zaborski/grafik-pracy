@@ -7,8 +7,8 @@ import MainPage from './components/mainPage/MainPage';
 class App extends Component {
 
   state = {
-    dataEnter: '',
-    data:'',
+    data: '',
+   
   }
 
   async componentDidMount(){
@@ -16,19 +16,12 @@ class App extends Component {
     await axios.get('http://testowo.elzonik.pl/frontest.php')
    
    
-    .then(res=> this.setState({dataEnter: res.data}))
+    .then(res=> this.setState({data: res.data}))
     
-    const {dataEnter} = this.state;
+   
+    
   
-    const newArrs = Object.entries(dataEnter)
-    let renderarr = []
-
-    newArrs.map(el=>renderarr.push(el[1]))
     
-    this.setState({data: renderarr})
-    const test = newArrs[0]
-    const test2 = test[1]
-    this.setState({data:test2})
      
   
 
@@ -53,13 +46,20 @@ class App extends Component {
   )
  } else {
    console.log('wczytano')
- 
+  console.log('state z App', this.state)
    
     return (
       <div className="App">
          <Header/>
-
-         <MainPage {...data}/>
+     
+      
+         
+     
+       
+       
+       
+       <MainPage {...this.state}/>
+        
       </div>
     );
   }
