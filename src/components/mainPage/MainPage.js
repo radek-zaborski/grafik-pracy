@@ -4,7 +4,20 @@ import  './MainPage.scss';
 class MainPage extends React.Component {
 
    
-
+  checkDate(i){
+     
+    const today = new Date();
+    console.log('dzień tygodnia')
+  
+    const date = today.getDate()
+      if(date === i ){
+        return (<tr className='day today'>{i}</tr>)
+      } 
+      else {
+        return(<tr className='day '>{i}</tr>)
+      }
+    }
+  
 
 
     render(){
@@ -14,9 +27,10 @@ class MainPage extends React.Component {
         const allDays = this.props.data.ile_dni;
         const allControllersData = this.props.data.kontroler;
         const scheduleControllerDay = [];
-        const testArray = [
-            
-        ];
+       const today = new Date();
+
+       const date = today.getDate()
+       console.log('data', date)
 
         console.log('data', data);
         console.log('dni miesiąca', allDays);
@@ -28,8 +42,9 @@ class MainPage extends React.Component {
             
           
         }
-        console.log('trestowy array', testArray)
+        
         const allDaysNumber = numberDaysArray.map(element=>(<td key={element}>{element}</td>))
+
 
  
         
@@ -48,9 +63,7 @@ class MainPage extends React.Component {
                     {Object.values(controlerel.obsady).map(( el, i)=>(
                   
                     <td >
-                      <tr className="day">
-                      {i +1}
-                      </tr>
+                      {this.checkDate(i)}
                         {el.dzialka}<br/>
                       
                       {el.flaga}</td>
@@ -74,9 +87,10 @@ class MainPage extends React.Component {
                         <table>
                          <thead>
                             <tr className="header__schedule">
-                                <td>IMIĘ I NAZWISKO</td>
-                               
+                                <td >IMIĘ I NAZWISKO</td>
+                                
                             </tr>
+                          
                          </thead>
                          <tbody>
                             {rowControllers}
