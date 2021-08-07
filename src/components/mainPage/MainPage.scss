@@ -1,25 +1,21 @@
-table {
-  margin-top: 50px;
+.container__table table {
+  thead {
+    padding-bottom: 10px;
+    .header__schedule td {
+      font-weight: bold;
 
-  display: block;
-
-  .controller_group {
-    height: auto;
+      padding: 2px;
+    }
   }
-}
-th {
-  border: black 1px solid;
-}
-th:nth-of-type(1) {
-  width: 130px;
-}
-tr {
-  margin-top: 10px;
+  width: auto;
 
-  border: 1px blue solid;
-}
-td {
-  height: 100%;
+  margin: 150px auto;
 
-  border-bottom: 1px double rgb(136, 97, 182);
+  border: 1px solid black;
+  tr,
+  td {
+    width: auto;
+
+    border: 1px solid black;
+  }
 }
