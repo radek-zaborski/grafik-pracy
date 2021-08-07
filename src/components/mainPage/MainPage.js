@@ -13,15 +13,22 @@ class MainPage extends React.Component {
         
         const allDays = this.props.data.ile_dni;
         const allControllersData = this.props.data.kontroler;
-        const scheduleControllerDay = []
-        console.log('data', data)
-        console.log('dni miesiąca', allDays)
-        console.log('dane wszystkich kontrolerów', allControllersData)
+        const scheduleControllerDay = [];
+        const testArray = [
+            
+        ];
+
+        console.log('data', data);
+        console.log('dni miesiąca', allDays);
+        console.log('dane wszystkich kontrolerów', allControllersData);
+       
         let numberDaysArray = []
         for(let i=1; i<=allDays; i++){
-            numberDaysArray.push(i)
+            numberDaysArray.push(i);
+            
+          
         }
-
+        console.log('trestowy array', testArray)
         const allDaysNumber = numberDaysArray.map(element=>(<td key={element}>{element}</td>))
 
  
@@ -32,17 +39,18 @@ class MainPage extends React.Component {
                 
                 <td>
                
-               
+                    <span className='text__day'>DZIEŃ</span>
                     {controlerel.dane_kontrolera.imie} {controlerel.dane_kontrolera.nazwisko}<br/>
                     {controlerel.dane_kontrolera.funkcja}
                 
                 </td>
-          
-                    {Object.values(controlerel.obsady).map(el=>(
-                    
-                    <td key={Math.random()}>
-                       
-                        
+                
+                    {Object.values(controlerel.obsady).map(( el, i)=>(
+                  
+                    <td >
+                      <tr className="day">
+                      {i +1}
+                      </tr>
                         {el.dzialka}<br/>
                       
                       {el.flaga}</td>
@@ -67,7 +75,7 @@ class MainPage extends React.Component {
                          <thead>
                             <tr className="header__schedule">
                                 <td>IMIĘ I NAZWISKO</td>
-                                {allDaysNumber}
+                               
                             </tr>
                          </thead>
                          <tbody>
