@@ -1,8 +1,33 @@
 .container__table {
-  width: 100%;
+  width: auto;
   display: block;
-  margin: 150px auto;
+  margin: 50px auto;
 
+  .container__button {
+    margin: 0 auto;
+    height: 50px;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+
+    .button__month {
+      border-radius: 20px;
+      padding: 10px;
+      border: 1px solid blue;
+      background-color: rgb(107, 143, 93);
+      letter-spacing: 3px;
+      font-size: 15px;
+      font-weight: bold;
+      color: white;
+      transition: 0.3s;
+      &:hover {
+        cursor: pointer;
+        border-radius: 40px 20px 40px 20px;
+        background-color: rgb(52, 114, 48);
+        border: 1px solid rgb(8, 8, 102);
+      }
+    }
+  }
   table {
     width: auto;
     thead {
@@ -12,7 +37,7 @@
       }
     }
 
-    margin: 150px auto;
+    margin: 50px auto;
 
     border: 1px solid black;
     tr,

@@ -1,9 +1,21 @@
 import React from 'react';
+
 import  './MainPage.scss';
 
 class MainPage extends React.Component {
 
-   
+   constructor(props){
+     super(props);
+     this.handleClickPrev = this.handleClickPrev.bind(this);
+     this.handleClickNow = this.handleClickNow.bind(this);
+     this.handleClickNext = this.handleClickNext.bind(this);
+
+
+     this.state = {
+      monthControl: 1
+     }
+   }
+
   checkDate(i){
      
     const today = new Date();
@@ -17,24 +29,35 @@ class MainPage extends React.Component {
         return(<tr className='day '>{i}</tr>)
       }
     }
+    
   
-
+ handleClickPrev(){
+ 
+   this.setState({monthControl: 0})
+ }
+   
+ handleClickNow(){
+ 
+  this.setState({monthControl: 1})
+}
+   
+ handleClickNext(){
+ 
+   this.setState({monthControl: 2})
+ }
 
     render(){
-       
-        const data = this.props.data;
+     
+   
         
+      
         const allDays = this.props.data.ile_dni;
-        const allControllersData = this.props.data.kontroler;
+        const allControllersData = this.props.data[this.state.monthControl].kontroler;
         const scheduleControllerDay = [];
-       const today = new Date();
+      
 
-       const date = today.getDate()
-       console.log('data', date)
-
-        console.log('data', data);
-        console.log('dni miesiąca', allDays);
-        console.log('dane wszystkich kontrolerów', allControllersData);
+      
+       
        
         let numberDaysArray = []
         for(let i=1; i<=allDays; i++){
@@ -84,6 +107,12 @@ class MainPage extends React.Component {
         console.log('tu powinna być tablica z grafikami', scheduleControllerDay)
              return(
                  <div className="container__table">
+                   <div className="container__button">
+                   <button className='button__month' onClick={this.handleClickPrev} >Wcześniejszy miesiąc</button>
+                   <button className='button__month' onClick={this.handleClickNow} >Aktualny miesiąc </button>
+                   <button className='button__month' onClick={this.handleClickNext} >Następny miesiąc </button>
+                   </div>
+                    
                         <table>
                          <thead>
                             <tr className="header__schedule">
