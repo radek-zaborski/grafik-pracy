@@ -22,11 +22,11 @@ class MainPage extends React.Component {
     console.log('dzień tygodnia')
   
     const date = today.getDate()
-      if(date === i ){
-        return (<tr className='day today'>{i}</tr>)
+      if(date === i+1 ){
+        return (<tr className='day today'>{i+1}</tr>)
       } 
       else {
-        return(<tr className='day '>{i}</tr>)
+        return(<tr className='day '>{i+1}</tr>)
       }
     }
     
