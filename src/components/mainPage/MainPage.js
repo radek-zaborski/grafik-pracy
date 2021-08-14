@@ -20,14 +20,18 @@ class MainPage extends React.Component {
      
     const today = new Date();
     console.log('dzień tygodnia')
-  
-    const date = today.getDate()
-      if(date === i+1 ){
+    const holiday= this.props.data[this.state.monthControl].czyswieto[i+1]
+    const day = today.getDate()
+      if(day === i+1 ){
         return (<tr className='day today'>{i+1}</tr>)
       } 
-      else {
-        return(<tr className='day '>{i+1}</tr>)
-      }
+      else if( holiday === 1){
+        return(<tr className='day holiday'>{i+1}</tr>)
+      } else{
+        return(<tr className='day'>{i+1}</tr>)
+      } 
+
+    
     }
     
   
