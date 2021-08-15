@@ -13,7 +13,7 @@ class App extends Component {
 
   async componentDidMount(){
   
-    await axios.get('http://localhost/a/test.php')
+    await axios.get('https://testowo.elzonik.pl/frontest.php')
    
    
     .then(res=> this.setState({data: res.data}))
